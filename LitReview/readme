@@ -1,0 +1,43 @@
+MSCF ML Capstone for “Commitments of Traders” Analysis Project
+COT Background 
+Released Friday, as of Tuesday data
+
+Possible Signals
+Commodities – Commercial buying/selling extreme (100%/0%  COT Index) (Briese, 2008)
+
+Data Modeling Issues
+-	Current schedule “as-of” Tuesday released Friday began Oct 9, 2000
+-	Options started January 18, 2002
+-	Inconsistent treatment for holidays, unexpected lags, therefore careful forecasting
+-	
+Potential Areas for Exploration
+-	Options Data
+-	Leveraged Information
+-	Non-traditional (sentiment, textual data)
+-	Combination of Chicago vs NY Markets
+
+
+Bibliography
+Aragon, George O., Mehra Rajnish, Wahal.  2020. "Do Properly Anticipated Prices Fluctuate Randomly?," The Journal of Portfolio Management, vol 46(7), pages 144-159.
+
+Bhardwaj, G., Gorton, G. B., & Rouwenhorst, K. G. (2016). Investor interest and the returns to commodity investing. Journal of Portfolio Management, 42(3), 44-55. doi:http://dx.doi.org.proxy.library.cmu.edu/10.3905/jpm.2016.42.3.044
+
+Briese, Stephen, and Joseph Jaffe. The Commitments of Traders Bible : How to Profit from Insider Market Intelligence, John Wiley & Sons, Incorporated, 2008. ProQuest Ebook Central, https://www-proquest-com.proxy.library.cmu.edu/legacydocview/EBC/335757?accountid=9902.
+
+Chatrath, A., Liang, Y., & Song, F. (1997). COMMITMENT OF TRADERS, BASIS BEHAVIOR, AND THE ISSUE OF RISK PREMIA IN FUTURES MARKETS: INTRODUCTION. The Journal of Futures Markets (1986-1998), 17(6), 707. Retrieved from https://www-proquest-com.proxy.library.cmu.edu/docview/225486270?accountid=9902
+
+Fagan, S. (2012). Large traders in financial markets (Order No. NS23210). Available from ProQuest Dissertations & Theses Global. (1515762417). Retrieved from https://www-proquest-com.proxy.library.cmu.edu/docview/1515762417?accountid=9902
+
+Maul, D., Fischer, M., & Schiereck, D. (2015). Spekulation am terminmarkt und die preisentwicklung von agrarrohstoffen am kassamarkt: Eine zeitreihenanalyse der CFTC berichte für weizen, mais und sojabohnen / speculation in futures markets and the impact on agricultural commodity prices: A time series analysis of the CFTC reports for wheat, corn and soybeans. Jahrbücher Für Nationalökonomie Und Statistik, 235(6), 608-629. doi:http://dx.doi.org.proxy.library.cmu.edu/10.1515/jbnst-2015-0606
+
+Often, E. M., & Wisen, C. H. (2013). Disaggregated commitment of traders data and prospective price effects. Journal of Applied Business Research, 29(5), 1381-n/a. Retrieved from https://www-proquest-com.proxy.library.cmu.edu/docview/1473895453?accountid=9902
+
+Raisler, K. M., Gilberg, D. J., & Sullivan, D. C. (2006). CFTC REVIEW OF COMMITMENTS OF TRADERS REPORTING PROGRAM. Derivatives Financial Products Reports, 7(12), 1-4. Retrieved from https://www-proquest-com.proxy.library.cmu.edu/docview/200617025?accountid=9902
+
+Sanders, D. R., Keith, B., & Manfredo, M. (2004). Hedgers, funds, and small speculators in the energy futures markets: An analysis of the CFTC's commitments of traders reports. Energy Economics, 26(3), 425-445. doi:http://dx.doi.org.proxy.library.cmu.edu/10.1016/S0140-9883(04)00020-9
+
+Sanders, D. R., & Irwin, S. H. (2011). The impact of index funds in commodity futures markets: A systems approach. The Journal of Alternative Investments, 14(1), 40-49,8. Retrieved from https://www-proquest-com.proxy.library.cmu.edu/docview/878740679?accountid=9902
+
+Yung, K., & Liu, Y. (2009). Implications of futures trading volume: Hedgers versus speculators. Journal of Asset Management, 10(5), 318-337. doi:http://dx.doi.org.proxy.library.cmu.edu/10.1057/jam.2009.31
+
+MARKET TALK: CFTC computer problem delays commitments of traders - CFTC. (2010, Sep 24). Dow Jones Institutional News Retrieved from https://www-proquest-com.proxy.library.cmu.edu/docview/2167866459?accountid=9902
