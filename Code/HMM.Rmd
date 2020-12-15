@@ -1,0 +1,92 @@
+---
+title: "HMM"
+author: "Xie Zhenshou"
+date: "10/27/2020"
+output: html_document
+---
+
+```{r HMM setup}
+library(HiddenMarkov)
+p = 0.8
+q = 0.9
+sigma1 = 1
+sigma2 = 4
+nl = 100 # The length of the series
+
+
+# The transition matrix
+P = matrix(c(p,1-p,1-q,q), byrow=TRUE, nrow=2)
+# The distribution for the initial state
+delta = c(0.5, 0.5)
+# Discrete Time HMM Object (DTHMM)
+simphmm = dthmm(NULL, P, delta, "norm",list(mean=c(0,0), sd=c(sigma1,sigma2)))
+
+set.seed(0)
+#Simulate the path because dthmm has NULL as data
+simphmm = simulate(simphmm, nsim=nl)
+
+#estimate the distribution paras given the path
+fitout = BaumWelch(simphmm)
+
+# Consider the following code to update both pm and pn
+simphmm2 = simphmm
+simphmm2$pm = list(sd=c(1,1)) # Vary by state
+simphmm2$pn = list(mean=rep(0,nl)) # Vary by observation
+fitout2 = BaumWelch(simphmm2)
+fitout2$Pi
+fitout2$pm
+
+#most likely state
+Viterbi(fitout2)
+```
+
+## Example: Log Return Data
+
+Fitting this same HMM model to the daily  log returns for AMZN from January 2017 through July 2018.
+
+```{r cars}
+library(quantmod)
+AMZN = getSymbols("AMZN", auto.assign=FALSE,from="2017-1-1", to="2018-7-31")
+logret = dailyReturn(Ad(AMZN), type="log")
+P = matrix(rep(0.5,4), byrow=TRUE, nrow=2)
+delta = c(0.5, 0.5)
+AMZNhmm = dthmm(logret, P, delta, "norm",pm = list(sd=c(1,2)),pn = list(mean=rep(0,length(logret))))
+AMZNhmmfit = BaumWelch(AMZNhmm)
+AMZNvit = Viterbi(AMZNhmmfit)
+AMZNhmmfit$pm
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r}
+nu = c(.2,.1)
+Q = matrix(c(-nu[1],nu[1],nu[2],-nu[2]), byrow=TRUE, nrow=2)
+x = mmpp(NULL, Q, delta=c(0.5, 0.5), lambda=c(5, 1))
+x = simulate(x, nsim=500)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+Q <- matrix(c(-2,  2,
+               1, -1),
+            byrow=TRUE, nrow=2)/10
+
+#    NULL indicates that we have no data at this point
+x <- mmpp(NULL, Q, delta=c(0, 1), lambda=c(5, 1))
+
+x <- simulate(x, nsim=5000, seed=5)
+
+y <- BaumWelch(x)
+
+print(summary(y))
+
+#    log-likelihood using initial parameter values
+print(logLik(x))
+
+#    log-likelihood using estimated parameter values
+print(logLik(y))
+
+```
