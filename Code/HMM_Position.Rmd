@@ -1,0 +1,39 @@
+---
+title: "HMM_Position"
+author: "Xie Zhenshou"
+date: "10/24/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+train <- read.csv(file ='corr.csv')
+```
+
+## HMM
+
+```{r cars}
+train <- read.csv(file ='corr.csv')
+train=na.omit(train)
+y=train$AM_NetPos
+plot(y)
+#two states from train: high(100-200), low(270-330)
+
+P = matrix(rep(0.5,4), byrow=TRUE, nrow=2)
+delta = c(0.8, 0.2) #initial prob: 0.8/0.2, doesnt differ much from 0.5/0.5
+hmm = dthmm(y, P, delta, "norm",pm = list(mean=c(mean(y[100:200]),mean(y[270:330])),sd=c(sd(y[100:200]),sd(y[270:330]))))
+hmmfit = BaumWelch(hmm) #Max Likelihood est
+vit = Viterbi(hmmfit) 
+
+plot(y)
+par(new=TRUE)
+plot(vit,color='blue')
+
+```
+
+## Save the states
+
+Save the states identified by R HMM to csv and proceed to Python
+
+```{r}
+write.csv(vit,'train_state.csv')
+```
